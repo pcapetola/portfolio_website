@@ -1,0 +1,62 @@
+/* ========================= Raleway (Google Font) ========================= */
+@font-face {
+    font-family: 'RalewayTitle';
+    src: url('../fonts/Raleway/RalewayTitle/Raleway-ExtraBold-webfont.eot');
+    src: url('../fonts/Raleway/RalewayTitle/Raleway-ExtraBold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Raleway/RalewayTitle/Raleway-ExtraBold-webfont.woff') format('woff'),
+         url('../fonts/Raleway/RalewayTitle/Raleway-ExtraBold-webfont.ttf') format('truetype'),
+         url('../fonts/Raleway/RalewayTitle/Raleway-ExtraBold-webfont.svg#ralewayextrabold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'RalewayTitle';
+    src: url('../fonts/Raleway/RalewayTitle/Raleway-Heavy-webfont.eot');
+    src: url('../fonts/Raleway/RalewayTitle/Raleway-Heavy-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Raleway/RalewayTitle/Raleway-Heavy-webfont.woff') format('woff'),
+         url('../fonts/Raleway/RalewayTitle/Raleway-Heavy-webfont.ttf') format('truetype'),
+         url('../fonts/Raleway/RalewayTitle/Raleway-Heavy-webfont.svg#ralewayheavy') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'RalewayBody';
+    src: url('../fonts/Raleway/RalewayBody/Raleway-Light-webfont.eot');
+    src: url('../fonts/Raleway/RalewayBody/Raleway-Light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Raleway/RalewayBody/Raleway-Light-webfont.woff') format('woff'),
+         url('../fonts/Raleway/RalewayBody/Raleway-Light-webfont.ttf') format('truetype'),
+         url('../fonts/Raleway/RalewayBody/Raleway-Light-webfont.svg#ralewaylight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'RalewayBody';
+    src: url('../fonts/Raleway/RalewayBody/Raleway-Medium-webfont.eot');
+    src: url('../fonts/Raleway/RalewayBody/Raleway-Medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Raleway/RalewayBody/Raleway-Medium-webfont.woff') format('woff'),
+         url('../fonts/Raleway/RalewayBody/Raleway-Medium-webfont.ttf') format('truetype'),
+         url('../fonts/Raleway/RalewayBody/Raleway-Medium-webfont.svg#ralewaymedium') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* ========================= Lato (Google Font) ========================= */
+@font-face {
+    font-family: 'RalewayBody';
+    src: url('../fonts/Lato/Lato-LightItalic-webfont.eot');
+    src: url('../fonts/Lato/Lato-LightItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Lato/Lato-LightItalic-webfont.woff2') format('woff2'),
+         url('../fonts/Lato/Lato-LightItalic-webfont.woff') format('woff'),
+         url('../fonts/Lato/Lato-LightItalic-webfont.ttf') format('truetype'),
+         url('../fonts/Lato/Lato-LightItalic-webfont.svg#latolight_italic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+/* ==================================================
+     * Add additional Lato weights as needed *
+================================================== */

@@ -1,0 +1,794 @@
+/*
+Project: Personal Website;
+Description: Standard 12 column responsive framework with standard reset;
+Author: Paul Capetola;
+Version: 2;
+
+ * This Cascading Style Sheet contains elements of Twitter Bootstrapv3.1.1 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ 
+ * This Cascading Style Sheet contains elements of Minimit Bootstrap 3 columns of same height
+ * http://www.minimit.com/articles/solutions-tutorials/bootstrap-3-responsive-columns-of-same-height
+ */
+
+/* ================================================================================================== */
+
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+#1.0 - Reset
+#2.0 - Framework Elements
+#3.0 - XS Columns
+    #3.1 - Structure
+    #3.2 - Push & Pull
+    #3.3 - Offsets
+    #3.4 - Resets
+#4.0 - SM Columns
+    #4.1 - Structure
+    #4.2 - Push & Pull
+    #4.3 - Offsets
+    #4.4 - Resets
+#5.0 - MD Columns
+    #5.1 - Structure
+    #5.2 - Push & Pull
+    #5.3 - Offsets
+    #5.4 - Resets
+#6.0 - LG Columns
+    #6.1 - Structure
+    #6.2 - Push & Pull
+    #6.3 - Offsets
+    #6.4 - Resets
+#7.0 - Visibility
+#8.0 - Columns of Equal Height
+    #8.1 - Equal Height Xs
+    #8.2 - Equal Height Sm
+    #8.3 - Equal Height Md
+    #8.4 - Equal Height Lg
+    #8.5 - Vertical Alignment
+#9.0 - Print
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+#1.0 - Reset
+--------------------------------------------------------------*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  border: 0;
+  font-family: inherit;
+  font-size: 100%;
+  font-style: inherit;
+  font-weight: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+html {
+  font-size: 62.5%; /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
+  font-size: 10px; /* Corrects text resizing oddly when browsers zoom text only */
+  height: 100%;
+  overflow-y: scroll; /* Keeps page centered in all browsers regardless of content height */
+  -webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
+  -ms-text-size-adjust:     100%; /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
+}
+
+*,
+*:before,
+*:after { /* apply a natural box layout model to all elements; see http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+  -webkit-box-sizing: border-box; /* Not needed for modern webkit but still used by Blackberry Browser 7.0; see http://caniuse.com/#search=box-sizing */
+  -moz-box-sizing:    border-box; /* Still needed for Firefox 28; see http://caniuse.com/#search=box-sizing */
+  box-sizing:         border-box;
+}
+
+body {
+  position: relative;
+  background: #fff; /* Fallback for when there is no custom background color defined. */
+  min-height: 100%;
+}
+
+body::before, body::after { content: ''; display: table; }
+body::after { clear: both; }
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+nav,
+section {
+  display: block;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+table { /* tables still need 'cellspacing="0"' in the markup */
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+caption,
+th,
+td {
+  font-weight: normal;
+  text-align: left;
+}
+blockquote:before, q:before { content: "\201C"; }
+blockquote:after, q:after { content: "\201D"; }
+
+blockquote, q {
+  quotes: '“' 'ˮ' '‘' '’';
+}
+
+a:focus {
+  outline: thin dotted;
+}
+
+a:hover,
+a:active {
+  outline: 0;
+}
+
+a img {
+  border: 0;
+}
+
+div#primary.content-area { overflow: hidden; }
+
+/*--------------------------------------------------------------
+#2.0 Framework Elements
+--------------------------------------------------------------*/
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.containerFluid {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container:before,
+.container:after,
+.containerFluid:before,
+.containerFluid:after,
+.row:before,
+.row:after {
+  content: " ";
+  display: table;
+}
+.container:after,
+.containerFluid:after,
+.row:after {
+  clear: both;
+}
+
+.row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.colXs1, .colSm1, .colMd1, .colLg1, .colXs2, .colSm2, .colMd2, .colLg2, .colXs3, .colSm3, .colMd3, .colLg3, .colXs4, .colSm4, .colMd4, .colLg4, .colXs5, .colSm5, .colMd5, .colLg5, .colXs6, .colSm6, .colMd6, .colLg6, .colXs7, .colSm7, .colMd7, .colLg7, .colXs8, .colSm8, .colMd8, .colLg8, .colXs9, .colSm9, .colMd9, .colLg9, .colXs10, .colSm10, .colMd10, .colLg10, .colXs11, .colSm11, .colMd11, .colLg11, .colXs12, .colSm12, .colMd12, .colLg12 {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.breakout {
+  position: relative;
+  display: block;
+  width: 100vw;
+  margin-left: 0; /* Look into doing this with .js depending on browser support. */
+}
+
+.hide { display: none !important; }
+.show { display: block !important; }
+
+.invisible { visibility: hidden; }
+
+.textHide {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+@-ms-viewport {
+  width: device-width;
+}
+
+/*--------------------------------------------------------------
+#3.0 XS Columns
+--------------------------------------------------------------*/
+
+/* #3.1 Structure **********************************************
+--------------------------------------------------------------*/
+.colXs1, .colXs2, .colXs3, .colXs4, .colXs5, .colXs6, .colXs7, .colXs8, .colXs9, .colXs10, .colXs11, .colXs12 {
+  float: left;
+}
+
+.colXs12 { width: 100%; }
+.colXs11 { width: 91.66666667%; }
+.colXs10 { width: 83.33333333%; }
+.colXs9 { width: 75%; }
+.colXs8 { width: 66.66666667%; }
+.colXs7 { width: 58.33333333%; }
+.colXs6 { width: 50%; }
+.colXs5 { width: 41.66666667%; }
+.colXs4 { width: 33.33333333%; }
+.colXs3 { width: 25%; }
+.colXs2 { width: 16.66666667%; }
+.colXs1 { width: 8.33333333%; }
+
+/* #3.2 Push & Pull ********************************************
+--------------------------------------------------------------*/
+.colXsPull12 { right: 100%; }
+.colXsPull11 { right: 91.66666667%; }
+.colXsPull10 { right: 83.33333333%; }
+.colXsPull9 { right: 75%; }
+.colXsPull8 { right: 66.66666667%; }
+.colXsPull7 { right: 58.33333333%; }
+.colXsPull6 {  right: 50%; }
+.colXsPull5 { right: 41.66666667%; }
+.colXsPull4 { right: 33.33333333%; }
+.colXsPull3 { right: 25%; }
+.colXsPull2 { right: 16.66666667%; }
+.colXsPull1 { right: 8.33333333%; }
+.colXsPullHalf { right: 4.16666667%; }
+.colXsPull0 { right: 0%; }
+
+.colXsPush12 { left: 100%; }
+.colXsPush11 { left: 91.66666667%; }
+.colXsPush10 { left: 83.33333333%; }
+.colXsPush9 { left: 75%; }
+.colXsPush8 { left: 66.66666667%; }
+.colXsPush7 { left: 58.33333333%; }
+.colXsPush6 { left: 50%; }
+.colXsPush5 { left: 41.66666667%; }
+.colXsPush4 { left: 33.33333333%; }
+.colXsPush3 { left: 25%; }
+.colXsPush2 { left: 16.66666667%; }
+.colXsPush1 { left: 8.33333333%; }
+.colXsPushHalf { left: 4.16666667%; }
+.colXsPush0 { left: 0%; }
+
+/* #3.3 Offsets ************************************************
+--------------------------------------------------------------*/
+.colXsOffset12 { margin-left: 100%; }
+.colXsOffset11 { margin-left: 91.66666667%; }
+.colXsOffset10 { margin-left: 83.33333333%; }
+.colXsOffset9 { margin-left: 75%; }
+.colXsOffset8 { margin-left: 66.66666667%; }
+.colXsOffset7 { margin-left: 58.33333333%; }
+.colXsOffset6 { margin-left: 50%; }
+.colXsOffset5 { margin-left: 41.66666667%; }
+.colXsOffset4 { margin-left: 33.33333333%; }
+.colXsOffset3 { margin-left: 25%; }
+.colXsOffset2 { margin-left: 16.66666667%; }
+.colXsOffset1 { margin-left: 8.33333333%; }
+.colXsOffsetHalf { margin-left: 4.16666667%; }
+.colXsOffset0 { margin-left: 0%; }
+
+/* #3.4 Resets ************************************************
+--------------------------------------------------------------*/
+.colXsReset12 { margin-left: -100%; }
+.colXsReset11 { margin-left: -91.66666667%; }
+.colXsReset10 { margin-left: -83.33333333%; }
+.colXsReset9 { margin-left: -75%; }
+.colXsReset8 { margin-left: -66.66666667%; }
+.colXsReset7 { margin-left: -58.33333333%; }
+.colXsReset6 { margin-left: -50%; }
+.colXsReset5 { margin-left: -41.66666667%; }
+.colXsReset4 { margin-left: -33.33333333%; }
+.colXsReset3 { margin-left: -25%; }
+.colXsReset2 { margin-left: -16.66666667%; }
+.colXsReset1 { margin-left: -8.33333333%; }
+.colXsResetHalf { margin-left: -4.16666667%; }
+.colXsReset0 { margin-left: -0%; }
+
+
+/*--------------------------------------------------------------
+#4.0 SM Columns
+--------------------------------------------------------------*/
+@media (min-width: 768px) {
+/* #4.1 Structure **********************************************
+--------------------------------------------------------------*/
+  .container {
+    width: 750px;
+  }
+
+  .breakout {
+    margin-left: calc((100vw - 750px) / -2)
+  }
+
+  .colSm1, .colSm2, .colSm3, .colSm4, .colSm5, .colSm6, .colSm7, .colSm8, .colSm9, .colSm10, .colSm11, .colSm12 {
+    float: left;
+  }
+
+  .colSm12 { width: 100%; }
+  .colSm11 { width: 91.66666667%; }
+  .colSm10 { width: 83.33333333%; }
+  .colSm9 { width: 75%; }
+  .colSm8 { width: 66.66666667%; }
+  .colSm7 { width: 58.33333333%; }
+  .colSm6 { width: 50%; }
+  .colSm5 { width: 41.66666667%; }
+  .colSm4 { width: 33.33333333%; }
+  .colSm3 { width: 25%; }
+  .colSm2 { width: 16.66666667%; }
+  .colSm1 { width: 8.33333333%; }
+
+/* #4.2 Push & Pull ********************************************
+--------------------------------------------------------------*/
+  .colSmPull12 { right: 100%; }
+  .colSmPull11 { right: 91.66666667%; }
+  .colSmPull10 { right: 83.33333333%; }
+  .colSmPull9 { right: 75%; }
+  .colSmPull8 { right: 66.66666667%; }
+  .colSmPull7 { right: 58.33333333%; }
+  .colSmPull6 { right: 50%; }
+  .colSmPull5 { right: 41.66666667%; }
+  .colSmPull4 { right: 33.33333333%; }
+  .colSmPull3 { right: 25%; }
+  .colSmPull2 { right: 16.66666667%; }
+  .colSmPull1 { right: 8.33333333%; }
+  .colSmPullHalf { right: 4.16666667%; }
+  .colSmPull0 { right: 0%; }
+
+  .colSmPush12 { left: 100%; }
+  .colSmPush11 { left: 91.66666667%; }
+  .colSmPush10 { left: 83.33333333%; }
+  .colSmPush9 { left: 75%; }
+  .colSmPush8 { left: 66.66666667%; }
+  .colSmPush7 { left: 58.33333333%; }
+  .colSmPush6 { left: 50%; }
+  .colSmPush5 { left: 41.66666667%; }
+  .colSmPush4 { left: 33.33333333%; }
+  .colSmPush3 { left: 25%; }
+  .colSmPush2 { left: 16.66666667%; }
+  .colSmPush1 { left: 8.33333333%; }
+  .colSmPushHalf { left: 4.16666667%; }
+  .colSmPush0 { left: 0%; }
+
+/* #4.3 Offsets ************************************************
+--------------------------------------------------------------*/
+  .colSmOffset12 { margin-left: 100%; }
+  .colSmOffset11 { margin-left: 91.66666667%; }
+  .colSmOffset10 { margin-left: 83.33333333%; }
+  .colSmOffset9 { margin-left: 75%; }
+  .colSmOffset8 { margin-left: 66.66666667%; }
+  .colSmOffset7 { margin-left: 58.33333333%; }
+  .colSmOffset6 { margin-left: 50%; }
+  .colSmOffset5 { margin-left: 41.66666667%; }
+  .colSmOffset4 { margin-left: 33.33333333%; }
+  .colSmOffset3 { margin-left: 25%; }
+  .colSmOffset2 { margin-left: 16.66666667%; }
+  .colSmOffset1 { margin-left: 8.33333333%; }
+  .colSmOffsetHalf { margin-left: 4.16666667%; }
+  .colSmOffset0 { margin-left: 0%; }
+
+/* #4.4 Resets ************************************************
+--------------------------------------------------------------*/
+  [class*="colSmReset"]:not(.colSMReset0) { margin-top: 1.48em; }
+
+  .colSmReset12 { margin-left: -100%; }
+  .colSmReset11 { margin-left: -91.66666667%; }
+  .colSmReset10 { margin-left: -83.33333333%; }
+  .colSmReset9 { margin-left: -75%; }
+  .colSmReset8 { margin-left: -66.66666667%; }
+  .colSmReset7 { margin-left: -58.33333333%; }
+  .colSmReset6 { margin-left: -50%; }
+  .colSmReset5 { margin-left: -41.66666667%; }
+  .colSmReset4 { margin-left: -33.33333333%; }
+  .colSmReset3 { margin-left: -25%; }
+  .colSmReset2 { margin-left: -16.66666667%; }
+  .colSmReset1 { margin-left: -8.33333333%; }
+  .colSmResetHalf { margin-left: -4.16666667%; }
+  .colSmReset0 { margin-left: -0%; }
+}
+
+/*--------------------------------------------------------------
+#5.0 MD Columns
+--------------------------------------------------------------*/
+@media (min-width: 992px) {
+/* #5.1 Structure **********************************************
+--------------------------------------------------------------*/
+  .container {
+    width: 970px;
+  }
+
+  .breakout {
+    margin-left: calc((100vw - 970px) / -2)
+  }
+
+  .colMd1, .colMd2, .colMd3, .colMd4, .colMd5, .colMd6, .colMd7, .colMd8, .colMd9, .colMd10, .colMd11, .colMd12 {
+    float: left;
+  }
+
+  .colMd12 { width: 100%; }
+  .colMd11 { width: 91.66666667%; }
+  .colMd10 { width: 83.33333333%; }
+  .colMd9 { width: 75%; }
+  .colMd8 { width: 66.66666667%; }
+  .colMd7 { width: 58.33333333%; }
+  .colMd6 { width: 50%; }
+  .colMd5 { width: 41.66666667%; }
+  .colMd4 { width: 33.33333333%; }
+  .colMd3 { width: 25%; }
+  .colMd2 { width: 16.66666667%; }
+  .colMd1 { width: 8.33333333%; }
+
+/* #5.2 Push & Pull ********************************************
+--------------------------------------------------------------*/
+  .colMdPull12 { right: 100%; }
+  .colMdPull11 { right: 91.66666667%; }
+  .colMdPull10 { right: 83.33333333%; }
+  .colMdPull9 { right: 75%; }
+  .colMdPull8 { right: 66.66666667%; }
+  .colMdPull7 { right: 58.33333333%; }
+  .colMdPull6 { right: 50%; }
+  .colMdPull5 { right: 41.66666667%; }
+  .colMdPull4 { right: 33.33333333%; }
+  .colMdPull3 { right: 25%; }
+  .colMdPull2 { right: 16.66666667%; }
+  .colMdPull1 { right: 8.33333333%; }
+  .colMdPullHalf { right: 4.16666667%; }
+  .colMdPull0 { right: 0%; }
+
+  .colMdPush12 { left: 100%; }
+  .colMdPush11 { left: 91.66666667%; }
+  .colMdPush10 { left: 83.33333333%; }
+  .colMdPush9 { left: 75%; }
+  .colMdPush8 { left: 66.66666667%; }
+  .colMdPush7 { left: 58.33333333%; }
+  .colMdPush6 { left: 50%; }
+  .colMdPush5 { left: 41.66666667%; }
+  .colMdPush4 { left: 33.33333333%; }
+  .colMdPush3 { left: 25%; }
+  .colMdPush2 { left: 16.66666667%; }
+  .colMdPush1 { left: 8.33333333%; }
+  .colMdPushHalf { left: 4.16666667%; }
+  .colMdPush0 { left: 0%; }
+
+/* #5.3 Offsets ************************************************
+--------------------------------------------------------------*/
+  .colMdOffset12 { margin-left: 100%; }
+  .colMdOffset11 { margin-left: 91.66666667%; }
+  .colMdOffset10 { margin-left: 83.33333333%; }
+  .colMdOffset9 { margin-left: 75%; }
+  .colMdOffset8 { margin-left: 66.66666667%; }
+  .colMdOffset7 { margin-left: 58.33333333%; }
+  .colMdOffset6 { margin-left: 50%; }
+  .colMdOffset5 { margin-left: 41.66666667%; }
+  .colMdOffset4 { margin-left: 33.33333333%; }
+  .colMdOffset3 { margin-left: 25%; }
+  .colMdOffset2 { margin-left: 16.66666667%; }
+  .colMdOffset1 { margin-left: 8.33333333%; }
+  .colMdOffsetHalf { margin-left: 4.16666667%; }
+  .colMdOffset0 { margin-left: 0%; }
+
+/* #5.4 Resets ************************************************
+--------------------------------------------------------------*/
+  [class*="colMdReset"]:not(.colMdReset0) { margin-top: 1.48em; }
+
+  .colMdReset12 { margin-left: -100%; }
+  .colMdReset11 { margin-left: -91.66666667%; }
+  .colMdReset10 { margin-left: -83.33333333%; }
+  .colMdReset9 { margin-left: -75%; }
+  .colMdReset8 { margin-left: -66.66666667%; }
+  .colMdReset7 { margin-left: -58.33333333%; }
+  .colMdReset6 { margin-left: -50%; }
+  .colMdReset5 { margin-left: -41.66666667%; }
+  .colMdReset4 { margin-left: -33.33333333%; }
+  .colMdReset3 { margin-left: -25%; }
+  .colMdReset2 { margin-left: -16.66666667%; }
+  .colMdReset1 { margin-left: -8.33333333%; }
+  .colMdResetHalf { margin-left: -4.16666667%; }
+  .colMdReset0 { margin-left: -0%; }
+}
+
+/*--------------------------------------------------------------
+#6.0 LG Columns
+--------------------------------------------------------------*/
+@media (min-width: 1200px) {
+/* #6.1 Structure **********************************************
+--------------------------------------------------------------*/
+  .container {
+    width: 1170px;
+  }
+
+  .breakout {
+    margin-left: calc((100vw - 1170px) / -2)
+  }
+
+  .colLg1, .colLg2, .colLg3, .colLg4, .colLg5, .colLg6, .colLg7, .colLg8, .colLg9, .colLg10, .colLg11, .colLg12 {
+    float: left;
+  }
+  
+  .colLg12 { width: 100%; }
+  .colLg11 { width: 91.66666667%; }
+  .colLg10 { width: 83.33333333%; }
+  .colLg9 { width: 75%; }
+  .colLg8 { width: 66.66666667%; }
+  .colLg7 { width: 58.33333333%; }
+  .colLg6 { width: 50%; }
+  .colLg5 { width: 41.66666667%; }
+  .colLg4 { width: 33.33333333%; }
+  .colLg3 { width: 25%; }
+  .colLg2 { width: 16.66666667%; }
+  .colLg1 { width: 8.33333333%; }
+
+/* #6.2 Push & Pull ********************************************
+--------------------------------------------------------------*/  
+  .colLgPull12 { right: 100%; }
+  .colLgPull11 { right: 91.66666667%; }
+  .colLgPull10 { right: 83.33333333%; }
+  .colLgPull9 { right: 75%; }
+  .colLgPull8 { right: 66.66666667%; }
+  .colLgPull7 { right: 58.33333333%; }
+  .colLgPull6 { right: 50%; }
+  .colLgPull5 { right: 41.66666667%; }
+  .colLgPull4 { right: 33.33333333%; }
+  .colLgPull3 { right: 25%; }
+  .colLgPull2 { right: 16.66666667%; }
+  .colLgPull1 { right: 8.33333333%; }
+  .colLgPullHalf { right: 4.16666667%; }
+  .colLgPull0 { right: 0%; }
+  
+  .colLgPush12 { left: 100%; }
+  .colLgPush11 { left: 91.66666667%; }
+  .colLgPush10 { left: 83.33333333%; }
+  .colLgPush9 { left: 75%; }
+  .colLgPush8 { left: 66.66666667%; }
+  .colLgPush7 { left: 58.33333333%; }
+  .colLgPush6 { left: 50%; }
+  .colLgPush5 { left: 41.66666667%; }
+  .colLgPush4 { left: 33.33333333%; }
+  .colLgPush3 { left: 25%; }
+  .colLgPush2 { left: 16.66666667%; }
+  .colLgPush1 { left: 8.33333333%; }
+  .colLgPushHalf { left: 4.16666667%; }
+  .colLgPush0 { left: 0%; }
+
+/* #6.3 Offsets ************************************************
+--------------------------------------------------------------*/  
+  .colLgOffset12 { margin-left: 100%; }
+  .colLgOffset11 { margin-left: 91.66666667%; }
+  .colLgOffset10 { margin-left: 83.33333333%; }
+  .colLgOffset9 { margin-left: 75%; }
+  .colLgOffset8 { margin-left: 66.66666667%; }
+  .colLgOffset7 { margin-left: 58.33333333%; }
+  .colLgOffset6 { margin-left: 50%; }
+  .colLgOffset5 { margin-left: 41.66666667%; }
+  .colLgOffset4 { margin-left: 33.33333333%; }
+  .colLgOffset3 { margin-left: 25%; }
+  .colLgOffset2 { margin-left: 16.66666667%; }
+  .colLgOffset1 { margin-left: 8.33333333%; }
+  .colLgOffsetHalf { margin-left: 4.16666667%; }
+  .colLgOffset0 { margin-left: 0%; }
+
+/* #6.4 Resets ************************************************
+--------------------------------------------------------------*/  
+  [class*="colLgReset"]:not(.colLgReset0) { margin-top: 1.48em; }
+
+  .colLgReset12 { margin-left: -100%; }
+  .colLgReset11 { margin-left: -91.66666667%; }
+  .colLgReset10 { margin-left: -83.33333333%; }
+  .colLgReset9 { margin-left: -75%; }
+  .colLgReset8 { margin-left: -66.66666667%; }
+  .colLgReset7 { margin-left: -58.33333333%; }
+  .colLgReset6 { margin-left: -50%; }
+  .colLgReset5 { margin-left: -41.66666667%; }
+  .colLgReset4 { margin-left: -33.33333333%; }
+  .colLgReset3 { margin-left: -25%; }
+  .colLgReset2 { margin-left: -16.66666667%; }
+  .colLgReset1 { margin-left: -8.33333333%; }
+  .colSmResetHalf { margin-left: -4.16666667%; }
+  .colLgReset0 { margin-left: -0%; }
+}
+
+/*--------------------------------------------------------------
+#7.0 Visibility
+--------------------------------------------------------------*/
+.screenReader {
+  position: absolute !important;
+  left: -10000px !important;
+  top: auto !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+}
+
+.hide { display: none !important; }
+.show { display: block !important; }
+.invisible { visibility: hidden; }
+
+.textHide {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.visibleXs,
+.visibleSm,
+.visibleMd,
+.visibleLg {
+  display: none !important;
+}
+
+@media (max-width: 767px) {
+  .visibleXs { display: block !important; }
+  table.visibleXs { display: table; }
+  tr.visibleXs { display: table-row !important; }
+  th.visibleXs,
+  td.visibleXs { display: table-cell !important; }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .visibleSm { display: block !important; }
+  table.visibleSm { display: table; }
+  tr.visibleSm { display: table-row !important; }
+  th.visibleSm,
+  td.visibleSm { display: table-cell !important; }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .visibleMd { display: block !important; }
+  table.visibleMd { display: table; }
+  tr.visibleMd { display: table-row !important; }
+  th.visibleMd,
+  td.visibleMd { display: table-cell !important; }
+}
+
+@media (min-width: 1200px) {
+  .visibleLg { display: block !important; }
+  table.visibleLg { display: table; }
+  tr.visibleLg { display: table-row !important; }
+  th.visibleLg,
+  td.visibleLg { display: table-cell !important; }
+}
+
+@media (max-width: 767px) {
+  .hiddenXs { display: none !important; }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .hiddenSm { display: none !important; }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .hiddenMd { display: none !important; }
+}
+
+@media (min-width: 1200px) {
+  .hiddenLg { display: none !important; }
+}
+
+/*--------------------------------------------------------------
+#8.0 Columns of Equal Height
+--------------------------------------------------------------*/
+
+/* #8.1 Equal Height Xs ****************************************
+--------------------------------------------------------------*/
+.containerXsHeight {
+    display:table;
+    padding-left:0px;
+    padding-right:0px;
+}
+.rowXsHeight {
+    display:table-row;
+}
+.colXsHeight {
+    display:table-cell;
+    float:none;
+}
+
+/* #8.2 Equal Height Sm ****************************************
+--------------------------------------------------------------*/
+@media (min-width: 768px) {
+    .containerSmHeight {
+        display:table;
+        padding-left:0px;
+        padding-right:0px;
+    }
+    .rowSmHeight {
+        display:table-row;
+    }
+    .colSmHeight {
+        display:table-cell;
+        float:none;
+    }
+}
+
+/* #8.3 Equal Height Md ****************************************
+--------------------------------------------------------------*/
+@media (min-width: 992px) {
+    .containerMdHeight {
+        display:table;
+        padding-left:0px;
+        padding-right:0px;
+    }
+    .rowMdHeight {
+        display:table-row;
+    }
+    .colMdHeight {
+        display:table-cell;
+        float:none;
+    }
+}
+
+/* #8.4 Equal Height Lg ****************************************
+--------------------------------------------------------------*/
+@media (min-width: 1200px) {
+    .containerLgHeight {
+        display:table;
+        padding-left:0px;
+        padding-right:0px;
+    }
+    .rowLgHeight {
+        display:table-row;
+    }
+    .colLgHeight {
+        display:table-cell;
+        float:none;
+    }
+}
+
+/* #8.5 Vertical Alignment *************************************
+--------------------------------------------------------------*/
+.colTop {
+    vertical-align:top;
+}
+.colMiddle {
+    vertical-align:middle;
+}
+.colBottom {
+    vertical-align:bottom;
+}
+
+/*--------------------------------------------------------------
+#9.0 Print
+--------------------------------------------------------------*/
+.visiblePrint { display: none !important; }
+
+@media print {
+  .visiblePrint { display: block !important; }
+  table.visiblePrint { display: table; }
+  tr.visiblePrint { display: table-row !important; }
+  th.visiblePrint,
+  td.visiblePrint { display: table-cell !important; }
+}
+
+@media print {
+  .hiddenPrint { display: none !important; }
+}
